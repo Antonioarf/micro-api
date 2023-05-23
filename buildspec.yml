@@ -3,6 +3,8 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - sudo yum install curl
+      - sudo yum install apt-get
       - pip install awscli --upgrade --user
       - echo `aws --version`
       - echo Installing Node 8
