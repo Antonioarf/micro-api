@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM node:12.8.1-alpine
 
 WORKDIR /app
 
