@@ -35,4 +35,4 @@ post_build:
 
 artifacts:
   files:
-    - build_output/imagedefinitions.json
+    - imagedefinitions.json
