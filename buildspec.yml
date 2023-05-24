@@ -9,7 +9,7 @@ phases:
       - curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
       - apt-get install -y nodejs
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com)
+      - aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com
       - export REPOSITORY_URI=${repository_url}
       - export IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - echo Entered the pre_build phase...
