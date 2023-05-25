@@ -15,26 +15,26 @@ phases:
       - echo Entered the pre_build phase...
       - npm install
 
-build:
-  commands:
-    - echo Build started on `date`
-    - echo Starting Unit Tests
-    - npm run unit-test
-    - echo Building the Docker image...
-    - docker build -t $REPOSITORY_URI:latest .
-    - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
-
-post_build:
-  commands:
-    - echo Build completed on `date`
-    - echo Pushing the Docker images...
-    - docker push $REPOSITORY_URI:latest
-    - docker push $REPOSITORY_URI:$IMAGE_TAG
-    - echo Writing image definitions file...
-    - printf '[{"name":"${container_name}","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG >imagedefinitions.json
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Starting Unit Tests
+      - npm run unit-test
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo $(basename /)
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - printf '[{"name":"${container_name}","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
   files:
-    - imagedefinitions.json
+    - Dokerfile
     - appspec.yml
   discard-paths: yes
