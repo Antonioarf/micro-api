@@ -1,7 +1,5 @@
-version: 0.2
-
-phases:
-  
-post_build:
-  commands:
-    - docker run Dockerfile
+version: 0.0
+os: linux
+files:
+  - source: Dockerfile
+    destination: /tmp
