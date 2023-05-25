@@ -35,7 +35,6 @@ post_build:
 
 artifacts:
   files:
-    - '**/*'
-  name: MyOutputArtifact
+    - imagedefinitions.json
+    - appspec.yml
   discard-paths: yes
-  packaging: zip
