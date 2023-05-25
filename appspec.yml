@@ -5,7 +5,8 @@ files:
 
 hooks:
   ApplicationStart:
-    - location: install.sh
+    - location: /home/ec2-user/micro-api
       timeout: 300
       runas: root
+      - chmod u+x install.sh 
       - ./install.sh
