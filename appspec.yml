@@ -24,3 +24,8 @@ hooks:
     - location: ~/
       timeout: 300
       runas: ec2-user
+
+  DownloadBundle:
+    - location: ~/
+      timeout: 300
+      runas: ec2-user
