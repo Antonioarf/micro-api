@@ -2,11 +2,12 @@ version: 0.0
 os: linux
 files:
   - source: /
+  - destination: ~/var/www/
 
 hooks:
   ApplicationStart:
-    - location: /home/ec2-user/micro-api
-      timeout: 300
+    - location: ~/var/www//micro-api
+      timeout: 600
       runas: root
-      - chmod u+x install.sh 
-      - ./install.sh
+    - chmod u+x install.sh 
+    - ./install.sh
