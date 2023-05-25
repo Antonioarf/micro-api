@@ -8,7 +8,12 @@ resources:
       image: <DOCKER_IMAGE_NAME>  # Replace with the name of your Docker image
       containerPort: <CONTAINER_PORT>  # Replace with the port your application listens on
 
-hooks:
-  BeforeInstall:
-    - location: install.sh
-      timeout: 300
+phases:
+  pre_build:
+    commands:
+      - curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+      - sudo apt install -y nodejs 
+      - npm install
+      - npm run unit-test
+      - npm start
+
