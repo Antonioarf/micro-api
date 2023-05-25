@@ -1,14 +1,11 @@
 version: 0.0
 os: linux
-
-resources:
-  - name: MyDockerContainer
-    type: DockerContainer
-    properties:
-      image: <DOCKER_IMAGE_NAME>  # Replace with the name of your Docker image
-      containerPort: <CONTAINER_PORT>  # Replace with the port your application listens on
+files:
+  - source: /
+    destination: /var/www/myapp
 
 hooks:
-  BeforeInstall:
+  ApplicationStart:
     - location: install.sh
-      timeout: 600
+      timeout: 300
+      runas: root
