@@ -2,12 +2,4 @@ version: 0.0
 os: linux
 files:
   - source: /
-  - destination: ~/var/www/
-
-hooks:
-  ApplicationStart:
-    - location: ~/var/www//micro-api
-      timeout: 600
-      runas: root
-    - chmod u+x install.sh 
-    - ./install.sh
+    destination: ~/
