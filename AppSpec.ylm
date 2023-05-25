@@ -1,5 +1,14 @@
 version: 0.0
 os: linux
-files:
-  - source: Dockerfile
-    destination: /tmp
+
+resources:
+  - name: MyDockerContainer
+    type: DockerContainer
+    properties:
+      image: <DOCKER_IMAGE_NAME>  # Replace with the name of your Docker image
+      containerPort: <CONTAINER_PORT>  # Replace with the port your application listens on
+
+hooks:
+  BeforeInstall:
+    - location: install.sh
+      timeout: 300
