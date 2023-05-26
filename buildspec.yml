@@ -3,7 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Executing build phase"
+      - echo "Introduzindo erro"
+      - esnisncwiv fsvc
       # Add your build commands here
       
 artifacts:
