@@ -4,31 +4,7 @@ files:
   - source: /
     destination: ~/
 
-hooks:
-  ApplicationStop:
-    - location: ~/
-      timeout: 300
-      runas: ec2-user
 
-  BeforeInstall:
-    - location: ~/
-      timeout: 300
-      runas: ec2-user
-
-  AfterInstall:
-    - location: ~/
-      timeout: 300
-      runas: ec2-user
-
-  ApplicationStart:
-    - location: ~/
-      timeout: 300
-      runas: ec2-user
-
-  DownloadBundle:
-    - location: ~/
-      timeout: 300
-      runas: sudo
 
 
 
