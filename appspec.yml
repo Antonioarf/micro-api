@@ -28,7 +28,7 @@ hooks:
   DownloadBundle:
     - location: ~/
       timeout: 300
-      runas: suudo
+      runas: sudo
 
 
 
